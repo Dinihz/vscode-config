@@ -173,5 +173,5 @@
     "<C-z>": false
   },
   "workbench.iconTheme": "vscode-icons",
-  "workbench.editor.showTabs": "none"
+  "workbench.editor.showTabs": "multiple"
 }

@@ -2,6 +2,12 @@
 
 This file documents the settings used in Visual Studio Code to optimize the development experience.
 
+## Credits
+
+This configuration was inspired and adapted from my fav youtuber:
+
+- [Lazar Nikolov](https://www.youtube.com/@nikolovlazar)
+
 ## Main Extensions
 
 - **Vim**: Enhanced Vim experience.
@@ -14,209 +20,417 @@ This file documents the settings used in Visual Studio Code to optimize the deve
 
 ```json
 {
-  {
-  "workbench.colorTheme": "Catppuccin Mocha",
-  "editor.fontSize": 14,
-  "editor.fontLigatures": true,
-  "editor.fontFamily": "'Hack Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
-  "editor.lineHeight": 1.8,
+  "editor.fontFamily": "Hack Nerd Font Mono",
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.tabSize": 2,
-  "editor.rulers": [80, 120],
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.wordWrap": "on",
-  "editor.minimap.renderCharacters": false,
-  "telemetry.telemetryLevel": "off",
-  "security.workspace.trust.untrustedFiles": "open",
-  "breadcrumbs.filePath": "off",
-  "outline.icons": false,
-  "explorer.compactFolders": false,
-  "liveServer.settings.donotShowInfoMsg": true,
-  "liveServer.settings.donotVerifyTags": true,
+  "editor.quickSuggestions": {
+    "comments": "on",
+    "strings": "on",
+    "other": "on"
+  },
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 24,
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "html.format.wrapAttributes": "auto",
-  "html.format.wrapLineLength": 0,
-  "html.autoClosingTags": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabCompletion": "on",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          //following will be in italic
+          "comment",
+          "entity.name.type.class", //class names
+          "keyword", //import, export, return…
+          "constant", //String, Number, Boolean…, this, super
+          "storage.modifier", //static keyword
+          "storage.type.class.js" //class keyword
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          //following will be excluded from italics (VSCode has some defaults for italics)
+          "invalid",
+          "keyword.operator",
+          "constant.numeric.css",
+          "keyword.other.unit.px.css",
+          "constant.numeric.decimal.js",
+          "constant.numeric.json"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+  "prettier.trailingComma": "es5",
+  "prettier.arrowParens": "always",
+  "javascript.validate.enable": false,
+  "editor.linkedEditing": true,
+  "editor.links": true,
+  "editor.minimap.renderCharacters": false,
+  "explorer.openEditors.visible": 1,
+  "editor.wordBasedSuggestions": "off",
+  "editor.quickSuggestionsDelay": 1000000,
+  "editor.parameterHints.enabled": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.fontWeight": "300",
+  "editor.cursorWidth": 5,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "terminal.integrated.fontFamily": "DankMono Nerd Font, Input Mono, SF Mono, monospace",
+  "terminal.integrated.lineHeight": 1,
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}"
+  },
+  "explorer.confirmDelete": false,
+  "editor.matchBrackets": "always",
+  "workbench.editor.highlightModifiedTabs": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "git.autofetch": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.suggestSelection": "first",
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "[javascriptreact]": {
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.bracketPairColorization.enabled": false,
-  "symbols.hidesExplorerArrows": false,
-  "symbols.files.associations": {
-    "*.module.ts": "nest",
-    "*.guard.ts": "typescript",
-    "*.spec.ts": "ts-test",
-    "*.e2e-spec.ts": "ts-test",
-    "vitest.config.e2e.ts": "vite",
-    ".env.example": "gear"
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "files.associations": {
-    "*.js": "javascriptreact"
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.colorDecorators": false,
-  "workbench.statusBar.visible": true,
-  "color-highlight.markerType": "dot-before",
-  "files.autoSaveDelay": 250,
-  "editor.minimap.enabled": false,
-  "workbench.iconTheme": "catppuccin-mocha",
-  "settingsSync.ignoredExtensions": [],
-  "files.autoSave": "onFocusChange",
-  "vim.easymotion": true,
-  "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
-  "vim.sneak": true,
-  "vim.easymotionMarkerooundColor": "#020202",
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
-    },
-    {
-      "before": ["<tab>"],
-      "commands": ["workbench.action.nextEditor"]
-    },
-    {
-      "before": ["<S-tab>"],
-      "commands": ["workbench.action.previousEditor"]
-    }
-  ],
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
-    },
-    {
-      "before": ["<C-j>"],
-      "after": ["<Esc>"]
-    },
-    {
-      "before": ["<C-k>"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.visualModeKeyBindings": [
-    {
-      "before": [">"],
-      "after": [">", "g", "v"]
-    },
-    {
-      "before": ["<"],
-      "after": ["<", "g", "v"]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
-    },
-    {
-      "before": ["<leader>", "w"],
-      "commands": ["workbench.action.splitEditor"]
-    },
-    {
-      "before": ["<leader>", "e"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
-    },
-    {
-      "before": ["<leader>", "f"],
-      "commands": ["revealInExplorer"]
-    },
-    {
-      "before": ["<leader>", "h"],
-      "after": ["_"]
-    },
-    {
-      "before": ["<leader>", "l"],
-      "after": ["$"]
-    }
-  ],
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "css.validate": false,
+  "editor.largeFileOptimizations": false,
+  "editor.letterSpacing": 0.3,
+  "editor.renderWhitespace": "boundary",
+  "extensions.ignoreRecommendations": true,
+  "emmet.excludeLanguages": ["markdown"],
+  "emmet.showExpandedAbbreviation": "never",
+  "markdown.extension.list.indentationSize": "inherit",
+  "prettier.jsxSingleQuote": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.showExitAlert": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "line-thin",
+  "terminal.integrated.cursorStyle": "line",
+  "editor.rulers": [80],
+  "markdown.extension.toc.levels": "2..6",
+  "workbench.sideBar.location": "right",
+  "screencastMode.fontSize": 32,
+  "screencastMode.mouseIndicatorSize": 40,
+  "screencastMode.verticalOffset": 10,
+  "screencastMode.mouseIndicatorColor": "#805AD5",
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "workbench.preferredDarkColorTheme": "Tokyo Night",
+  "workbench.preferredHighContrastColorTheme": "Tokyo Night",
+  "window.autoDetectHighContrast": false,
+  "search.defaultViewMode": "tree",
+  "editor.guides.bracketPairs": "active",
+  "git.openRepositoryInParentFolders": "never",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "vim.leader": "<space>",
-
+  "editor.lineNumbers": "relative",
+  "editor.accessibilitySupport": "off",
+  "workbench.colorTheme": "Tokyo Night",
+  "window.zoomLevel": 2,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.editor.empty.hint": "hidden",
+  "git.ignoreRebaseWarning": true,
+  "accessibility.signals.terminalBell": {
+    "sound": "on"
+  },
+  "terminal.integrated.enableVisualBell": true,
+  "workbench.editor.customLabels.patterns": {
+    "**/{layout,page}.tsx": "${dirname} ${filename}"
+  },
+  "editor.minimap.enabled": false,
+  "terminal.integrated.fontSize": 14,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "cursor.cpp.disabledLanguages": ["yaml", "plaintext", "markdown"],
+  "workbench.activityBar.orientation": "vertical",
+  "cursor.chat.alwaysSearchWeb": true,
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.layoutControl.enabled": false,
+  "window.commandCenter": false,
+  "breadcrumbs.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "vim.cursorStylePerMode.insert": "line-thin",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.cursorStylePerMode.replace": "block-outline",
+  "vim.easymotion": true,
+  "vim.targets.enable": true,
+  "vim.foldfix": true,
   "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false,
-    // VS Code new marker @ next occurence
-    "<C-c>": false,
-    // Cut
-    "<C-x>": false,
-    // Paste
-    "<C-v>": false,
-    "<C-z>": false,
-    "<C-y>": false
-  }
-}
+    "<C-d>": true,
+    "<C-s>": false,
+    "<C-z>": false
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.editor.showTabs": "multiple"
 }
 ```
 
 ## Keyboard Shortcuts (`keybindings.json`)
 
 ```json
-{
 [
+  // Navigation
   {
-    "key": "ctrl+n",
-    "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus"
+    "key": "ctrl-h",
+    "command": "workbench.action.navigateLeft"
   },
   {
-    "key": "ctrl+d",
-    "command": "-editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus"
+    "key": "ctrl-l",
+    "command": "workbench.action.navigateRight"
   },
   {
-    "key": "ctrl+d",
-    "command": "-list.focusPageDown",
-    "when": "listFocus && !inputFocus"
+    "key": "ctrl-k",
+    "command": "workbench.action.navigateUp"
   },
   {
-    "key": "ctrl+;",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
+    "key": "ctrl-j",
+    "command": "workbench.action.navigateDown"
   },
   {
-    "key": "ctrl+`",
-    "command": "-workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
+    "key": "space ,",
+    "command": "workbench.action.showAllEditors",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "shift+alt+k",
-    "command": "editor.action.moveLinesUpAction",
-    "when": "editorTextFocus && !editorReadonly"
+    "key": "space e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.files.action.focusFilesExplorer"
+      ]
+    },
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
   },
   {
-    "key": "shift+alt+j",
-    "command": "editor.action.moveLinesDownAction",
-    "when": "editorTextFocus && !editorReadonly"
+    "key": "space e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    "when": "sideBarFocus && !inputFocus"
+  },
+  {
+    "key": "space e",
+    "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible",
+    "command": "workbench.action.toggleSidebarVisibility"
   },
   {
     "key": "tab",
-    "command": "selectNextSuggestion",
-    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "shift+tab",
-    "command": "selectPrevSuggestion",
-    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    "key": "shift-tab",
+    "command": "workbench.action.previousEditorInGroup",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "ctrl+t",
-    "command": "-extension.vim_ctrl+t",
-    "when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
+    "key": "s h",
+    "command": "workbench.action.splitEditor",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "ctrl+t",
-    "command": "-workbench.action.showAllSymbols"
+    "key": "s v",
+    "command": "workbench.action.splitEditorDown",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+
+  // Coding
+  {
+    "key": "space c a",
+    "command": "editor.action.codeAction",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "ctrl+k",
-    "command": "-extension.vim_ctrl+k",
-    "when": "editorTextFocus && vim.active && vim.use<C-k> && !inDebugRepl"
+    "key": "shift-k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "vim.mode == 'VisualLine' && editorTextFocus"
+  },
+  {
+    "key": "shift-j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "vim.mode == 'VisualLine' && editorTextFocus"
+  },
+  {
+    "key": "shift-k",
+    "command": "editor.action.showHover",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c r",
+    "command": "editor.action.rename",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c s",
+    "command": "workbench.action.gotoSymbol",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space b d",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "(vim.mode == 'Normal' && editorTextFocus) || !inputFocus"
+  },
+  {
+    "key": "space space",
+    "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "g r",
+    "command": "editor.action.goToReferences",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "g i",
+    "command": "editor.action.goToImplementation",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g g",
+    "command": "runCommands",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)",
+    "args": {
+      "commands": ["workbench.view.scm", "workbench.scm.focus"]
+    }
+  },
+  {
+    "key": "space s g",
+    "command": "workbench.action.findInFiles",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "ctrl-n",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
+
+  // File Explorer
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "c",
+    "command": "filesExplorer.copy",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "s",
+    "command": "explorer.openToSide",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift-s",
+    "command": "runCommands",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
+    "args": {
+      "commands": [
+        "workbench.action.splitEditorDown",
+        "explorer.openAndPassFocus",
+        "workbench.action.closeOtherEditors"
+      ]
+    }
+  },
+  {
+    "key": "enter",
+    "command": "explorer.openAndPassFocus",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "list.toggleExpand",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
+  },
+
+  // Debug
+  {
+    "key": "space d a",
+    "command": "workbench.action.debug.selectandstart",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && debuggersAvailable"
+  },
+  {
+    "key": "space d t",
+    "command": "workbench.action.debug.stop",
+    "when": "vim.mode == 'Normal' && editorTextFocus && inDebugMode && !focusedSessionIsAttached"
+  },
+  {
+    "key": "space d o",
+    "command": "workbench.action.debug.stepOver",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
+  },
+  {
+    "key": "space d b",
+    "command": "editor.debug.action.toggleBreakpoint",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space d e",
+    "command": "editor.debug.action.showDebugHover",
+    "when": "vim.mode == 'Normal' && editorTextFocus && inDebugMode && debugState == 'stopped'"
+  },
+  {
+    "key": "space d c",
+    "command": "workbench.action.debug.continue",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
   }
 ]
-},
 ```
